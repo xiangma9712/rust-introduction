@@ -23,6 +23,9 @@ cargo run
 
 ## 101
 
+CLIインターフェースで、値を受け取り、最大公約数を計算するプログラムを作成する。
+[Code](./rust101_hello/src/main.rs)
+
 ### 文法サマリー
 
 - useキーワードは、Rust言語の特定の機能や関数をスコープ内に取り込むために使用します。ここでは、useキーワードを使用して、std（標準ライブラリ）からFromStr traitとenvモジュールを呼び出しています。
@@ -39,3 +42,20 @@ cargo run
 ```sh
 rustup doc --std
 ```
+
+## 102
+
+Actix Webを使用して、HTTPサーバーを作成する。
+[Code](./rust102_actix-gcd/src/main.rs)
+
+### 文法サマリー
+
+- modキーワードは、gcd_libという名前のモジュールを定義するために使用されます。
+- useキーワードは、特定のRust言語の機能または関数をスコープに入れるために使用します。ここでは、actix_webクレート、serdeクレート、別のファイルで定義されたgcd_libモジュールなど、プログラムに必要なさまざまな依存関係を取り込むためにuseキーワードが使用されています。
+- post_gcd関数では、if文を使用して、入力パラメータnまたはmのいずれかが0に等しいかどうかをチェックします。もしそうなら、エラーメッセージとともにHTTP 400 Bad Requestエラーを返します。
+- content_type() および body() メソッドは、それぞれ HTTP レスポンスのコンテンツタイプおよびボディを設定するために使用されます。
+- web::get().to() メソッドは、HTTP GET リクエストを get_index 関数にルーティングするために使用されます。
+- web::post().to() メソッドは、HTTP POST リクエストを post_gcd 関数へルーティングするために使用される。
+- struct キーワードを使用して、post_gcd 関数への入力パラメータを表す GcdParameters という新しいデータ構造を定義します。
+- #[derive(Deserialize)]属性は、GcdParameters構造体のDeserialize特性を自動的に実装するために使用される。
+- format!()マクロは、gcd_libモジュールで定義されたgcd()関数の呼び出し結果を含む文字列を構築するために使用されます。
