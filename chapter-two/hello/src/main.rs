@@ -1,5 +1,5 @@
-use std::str::FromStr;
 use std::env;
+use std::str::FromStr;
 
 fn main() {
     let mut numbers = Vec::new();
@@ -7,7 +7,7 @@ fn main() {
     for arg in env::args().skip(1) {
         numbers.push(u64::from_str(&arg).expect("error parsing argument"));
     }
-    
+
     if numbers.len() == 0 {
         eprintln!("Usage: gcd NUMBER...");
         std::process::exit(1);

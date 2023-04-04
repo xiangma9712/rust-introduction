@@ -1,8 +1,8 @@
 mod gcd_lib;
 
+use crate::gcd_lib::handlers;
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
 use serde::Deserialize;
-use crate::gcd_lib::handlers;
 
 fn main() {
     let server = HttpServer::new(|| {
@@ -12,7 +12,11 @@ fn main() {
     });
 
     println!("Serving on http://localhost:3000");
-    server.bind("127.0.0.1:3000").expect("error binding to address").run().expect("error running server");
+    server
+        .bind("127.0.0.1:3000")
+        .expect("error binding to address")
+        .run()
+        .expect("error running server");
 }
 
 fn get_index() -> impl Responder {
@@ -38,8 +42,17 @@ struct GcdParameters {
 
 fn post_gcd(form: web::Form<GcdParameters>) -> HttpResponse {
     if form.n == 0 || form.m == 0 {
-        HttpResponse::BadRequest().content_type("text/html; charset=utf-8").body("Computing the GCD with zero is boring. Try again with positive integers.");
+        HttpResponse::BadRequest()
+            .content_type("text/html; charset=utf-8")
+            .body("Computing the GCD with zero is boring. Try again with positive integers.");
     }
-    let response = format!("The greatest common divisor of the numbers {} and {} is <b>{}</b>", form.n, form.m, handlers::gcd(form.n, form.m));
-    HttpResponse::Ok().content_type("text/html; charset=utf-8").body(response)
+    let response = format!(
+        "The greatest common divisor of the numbers {} and {} is <b>{}</b>",
+        form.n,
+        form.m,
+        handlers::gcd(form.n, form.m)
+    );
+    HttpResponse::Ok()
+        .content_type("text/html; charset=utf-8")
+        .body(response)
 }
