@@ -59,3 +59,14 @@ Actix Webを使用して、HTTPサーバーを作成する。
 - struct キーワードを使用して、post_gcd 関数への入力パラメータを表す GcdParameters という新しいデータ構造を定義します。
 - #[derive(Deserialize)]属性は、GcdParameters構造体のDeserialize特性を自動的に実装するために使用される。
 - format!()マクロは、gcd_libモジュールで定義されたgcd()関数の呼び出し結果を含む文字列を構築するために使用されます。
+
+## 103
+
+crossbeamを使用して、並列処理を行う。
+[Code](./rust103_mandelbrot/src/main.rs)
+
+```sh
+cd rust103_mandelbrot
+cargo build --release
+target/release/rust103_mandelbrot mandelbrot.png 4000x3000 -1.20,0.35 -1,0.20
+```
