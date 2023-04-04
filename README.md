@@ -24,7 +24,7 @@ cargo run
 ## 101
 
 CLIインターフェースで、値を受け取り、最大公約数を計算するプログラムを作成する。
-[Code](./10X/hello/src/main.rs)
+[Code](./chapter-two/hello/src/main.rs)
 
 ### 文法サマリー
 
@@ -46,7 +46,7 @@ rustup doc --std
 ## 102
 
 Actix Webを使用して、HTTPサーバーを作成する。
-[Code](./10X/actix-gcd/src/main.rs)
+[Code](./chapter-two/actix-gcd/src/main.rs)
 
 ### 文法サマリー
 
@@ -63,10 +63,10 @@ Actix Webを使用して、HTTPサーバーを作成する。
 ## 103
 
 crossbeamを使用して、並列処理を行う。
-[Code](./10X/mandelbrot/src/main.rs)
+[Code](./chapter-two/mandelbrot/src/main.rs)
 
 ```sh
-cd 10X/mandelbrot
+cd chapter-two/mandelbrot
 cargo build --release
 target/release/mandelbrot mandelbrot.png 4000x3000 -1.20,0.35 -1,0.20
 ```
@@ -74,7 +74,7 @@ target/release/mandelbrot mandelbrot.png 4000x3000 -1.20,0.35 -1,0.20
 ## 104
 
 コマンドラインツールを作成する。
-[Code](./10X/quickreplace/src/main.rs)
+[Code](./chapter-two/quickreplace/src/main.rs)
 
 ### 文法サマリー
 
