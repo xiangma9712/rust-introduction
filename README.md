@@ -70,3 +70,18 @@ cd rust103_mandelbrot
 cargo build --release
 target/release/rust103_mandelbrot mandelbrot.png 4000x3000 -1.20,0.35 -1,0.20
 ```
+
+## 104
+
+コマンドラインツールを作成する。
+[Code](./rust104_quickreplace/src/main.rs)
+
+### 文法サマリー
+
+- このコードでは、「use」キーワードを使用して、「std」ライブラリと「regex」ライブラリから、それぞれ「fs」モジュールと「Regex」モジュールをインポートしています。
+- Arguments構造体は、4つのフィールドを持つ： 「pattern"、"replacement"、"filename"、"output "です。
+- このコードでは、「fs::read_to_string」、「replace」、「fs::write」関数が返す可能性のある成功値やエラー値を処理するために「match」キーワードを使っています。
+- env::args関数を呼び出してコマンドライン引数のリストを取得し、「parse_arguments」関数を使用して解析する。
+- std::process::exit関数を使用して、エラーが発生した場合、0以外の終了コードでプログラムを終了します。
+- cloneメソッドを使用して、既存のインスタンスから「String」型の新しいインスタンスを作成します。
+- skipメソッドを使用して、コマンドライン引数のリストの最初の引数（プログラム自体の名前）をスキップするコードです。

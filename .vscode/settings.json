@@ -1,10 +1,11 @@
 {
-    "cSpell.words": [
-        "actix",
-        "proto",
-        "rustc",
-        "rustdoc",
-        "rustup",
-        "tlsv"
-    ]
+  "cSpell.words": [
+    "actix",
+    "proto",
+    "quickreplace",
+    "rustc",
+    "rustdoc",
+    "rustup",
+    "tlsv"
+  ]
 }
